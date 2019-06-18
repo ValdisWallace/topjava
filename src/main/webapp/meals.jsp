@@ -28,11 +28,12 @@
         <th class="tg-vox4">Описание</th>
         <th class="tg-vox4">Калории</th>
     </tr>
-    <c:forEach var="meal" items="${mealsTo}">
-        <fmt:parseDate value="${meal.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
-        <fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm" var="date" />
+    <c:forEach items="${meals}" var="meal">
+<%--        <jsp:useBean id="meal" class="ru.javawebinar.topjava.model.MealTo" />--%>
 
         <tr>
+            <fmt:parseDate value="${meal.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+            <fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm" var="date" />
             <td class="tg-x5q1">${date}</td>
             <td class="tg-x5q1">${meal.description}</td>
             <td class="tg-x5q1" <c:if test="${meal.excess}"> style="color: red" </c:if>>${meal.calories}</td>
