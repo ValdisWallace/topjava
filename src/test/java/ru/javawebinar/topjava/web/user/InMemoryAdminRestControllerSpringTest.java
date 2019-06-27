@@ -23,13 +23,13 @@ public class InMemoryAdminRestControllerSpringTest {
     @Autowired
     private AdminRestController controller;
 
-    @Autowired
-    private InMemoryUserRepository repository;
+//    @Autowired
+//    private InMemoryUserRepository repository;
 
-    @Before
-    public void setUp() throws Exception {
-        repository.init();
-    }
+//    @Before
+//    public void setUp() throws Exception {
+//        repository.init();
+//    }
 
     @Test
     public void delete() throws Exception {
