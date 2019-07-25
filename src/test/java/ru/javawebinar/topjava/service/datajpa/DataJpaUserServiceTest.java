@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.service.datajpa;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.context.ActiveProfiles;
 import ru.javawebinar.topjava.MealTestData;
@@ -12,6 +13,13 @@ import static ru.javawebinar.topjava.UserTestData.*;
 
 @ActiveProfiles(DATAJPA)
 public class DataJpaUserServiceTest extends AbstractUserServiceTest {
+
+    @Before
+    public void setUp() throws Exception {
+        cacheManager.getCache("users").clear();
+        jpaUtil.clear2ndLevelHibernateCache();
+    }
+
     @Test
     public void testGetWithMeals() throws Exception {
         User user = service.getWithMeals(USER_ID);
