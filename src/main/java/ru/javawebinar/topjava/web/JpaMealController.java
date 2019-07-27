@@ -29,8 +29,6 @@ public class JpaMealController {
     @Autowired
     private MealService service;
 
-    private int userId = SecurityUtil.authUserId();
-
     @PostMapping(params = {"id", "dateTime", "description", "calories"})
     public String save(Model model,
                        @RequestParam(defaultValue = "0") int id,
@@ -41,43 +39,43 @@ public class JpaMealController {
 
         if (id != 0) {
             assureIdConsistent(meal, id);
-            log.info("update {} for user {}", meal, userId);
-            service.update(meal, userId);
+            log.info("update {} for user {}", meal, SecurityUtil.authUserId());
+            service.update(meal, SecurityUtil.authUserId());
         } else {
             checkNew(meal);
-            log.info("create {} for user {}", meal, userId);
-            service.create(meal, userId);
+            log.info("create {} for user {}", meal, SecurityUtil.authUserId());
+            service.create(meal, SecurityUtil.authUserId());
         }
-        return getMeals(model);
+        return getAll(model);
     }
 
     @GetMapping
-    public String getMeals(Model model) {
-        log.info("getAll for user {}", userId);
-        model.addAttribute("meals", MealsUtil.getWithExcess(service.getAll(userId), SecurityUtil.authUserCaloriesPerDay()));
+    public String getAll(Model model) {
+        log.info("getAll for user {}", SecurityUtil.authUserId());
+        model.addAttribute("meals", MealsUtil.getWithExcess(service.getAll(SecurityUtil.authUserId()), SecurityUtil.authUserCaloriesPerDay()));
         return "meals";
     }
 
     @GetMapping(params = "delete")
     public String delete(Model model, @RequestParam("delete") int id) {
-        log.info("delete meal {} for user {}", id, userId);
-        service.delete(id, userId);
-        getMeals(model);
+        log.info("delete meal {} for user {}", id, SecurityUtil.authUserId());
+        service.delete(id, SecurityUtil.authUserId());
+        getAll(model);
         return "meals";
     }
 
     @GetMapping(params = "create")
     public String create(Model model) {
         final Meal meal = new Meal(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES), "", 1000);
-        log.info("create {} for user {}", meal, userId);
+        log.info("create {} for user {}", meal, SecurityUtil.authUserId());
         model.addAttribute("meal", meal);
         return "/mealForm";
     }
 
     @GetMapping(params = "update")
     public String update(Model model, @RequestParam("update") int id) {
-        final Meal meal = service.get(id, userId);
-        log.info("update {} for user {}", meal, userId);
+        final Meal meal = service.get(id, SecurityUtil.authUserId());
+        log.info("update {} for user {}", meal, SecurityUtil.authUserId());
         model.addAttribute("meal", meal);
         return "/mealForm";
     }
@@ -94,9 +92,9 @@ public class JpaMealController {
 
 
     public List<MealTo> getBetween(LocalDate startDate, LocalTime startTime, LocalDate endDate, LocalTime endTime) {
-        log.info("getBetween dates({} - {}) time({} - {}) for user {}", startDate, endDate, startTime, endTime, userId);
+        log.info("getBetween dates({} - {}) time({} - {}) for user {}", startDate, endDate, startTime, endTime, SecurityUtil.authUserId());
 
-        List<Meal> mealsDateFiltered = service.getBetweenDates(startDate, endDate, userId);
+        List<Meal> mealsDateFiltered = service.getBetweenDates(startDate, endDate, SecurityUtil.authUserId());
         return MealsUtil.getFilteredWithExcess(mealsDateFiltered, SecurityUtil.authUserCaloriesPerDay(), startTime, endTime);
     }
 }
