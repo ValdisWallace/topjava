@@ -77,3 +77,7 @@ function failNoty(jqXHR) {
         layout: "bottomRight"
     }).show();
 }
+
+// function updateFilteredTable() {
+//
+// }
