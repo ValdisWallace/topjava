@@ -78,6 +78,11 @@ function failNoty(jqXHR) {
     }).show();
 }
 
+function updateRow(id) {
+    form.find(":input").val("");
+    $("#editRow").modal();
+}
+
 // function updateFilteredTable() {
 //
 // }
