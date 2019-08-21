@@ -39,6 +39,12 @@ class MealRestControllerTest extends AbstractControllerTest {
     }
 
     @Test
+    void getUnAuth() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get(REST_URL + MEAL1_ID))
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
     void delete() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.delete(REST_URL + MEAL1_ID)
                 .with(userHttpBasic(USER)))
