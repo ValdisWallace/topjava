@@ -62,7 +62,7 @@
 В данном случае двойная мапа (мультимап) - самый эффективный способ хранения, который не требует итерирования (перебора всех значений). С другой стороны затраты по памяти в этом решении больше.
 
 ## Занятие 3:
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOU8wWlpPVE05STA">Коротко о жизненном цикле Spring контекста.</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 3. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFOU8wWlpPVE05STA" target="_blank">Коротко о жизненном цикле Spring контекста.</a>
 #### Apply 3_06_bean_life_cycle.patch
 > На JDK 11 перейдем в 5 занятии. Если у вас JDK больше 8, [добавьте в pom `javax.annotation-api`](https://stackoverflow.com/a/46502132/548473)
 
