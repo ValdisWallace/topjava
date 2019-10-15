@@ -14,7 +14,7 @@
 - Поменял красный цвет еды с превышением на синий. Еще одна из тенденций - толерантность. [Дальтоники: как они видят мир](https://news.rambler.ru/other/37858187-daltoniki-kak-oni-vidyat-mir)
 
 ## ![hw](https://cloud.githubusercontent.com/assets/13649199/13672719/09593080-e6e7-11e5-81d1-5cb629c438ca.png) Разбор домашнего задания HW02
-### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdDhnNHFMU2dKQzQ">HW2</a>
+### ![video](https://cloud.githubusercontent.com/assets/13649199/13672715/06dbc6ce-e6e7-11e5-81a9-04fbddb9e488.png) 1. <a href="https://drive.google.com/open?id=0B9Ye2auQ_NsFdDhnNHFMU2dKQzQ" target="_blank">HW2</a>
 
 #### Apply 3_01_HW2_repository.patch
 > - В репозиториях по другому инстанциировал компараторы. [Оптимизация анонимных классов](http://stackoverflow.com/questions/19718353) не требуется! Почитайте комменты от Holger: *Java 8 relieves us from the need to think about such things at all*.
